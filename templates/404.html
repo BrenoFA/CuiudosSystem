@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Página não encontrada{% endblock %}
+
+{% block content %}
+<div class="vazio">
+  <h1>Página não encontrada</h1>
+  <p>O endereço pode estar errado, ou o evento pode ter sido excluído.</p>
+  <a href="{% url 'eventos:lista' %}">Voltar aos eventos</a>
+</div>
+{% endblock %}

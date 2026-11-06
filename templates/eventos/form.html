@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{% if object %}Editar evento{% else %}Novo evento{% endif %}{% endblock %}
+
+{% block content %}
+<section class="painel painel--medio">
+  <h1>{% if object %}Editar evento{% else %}Novo evento{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {% include "partials/_form_campos.html" %}
+    <div class="form-acoes">
+      <button class="botao" type="submit">{% if object %}Salvar alterações{% else %}Publicar evento{% endif %}</button>
+      <a href="{% if object %}{{ object.get_absolute_url }}{% else %}{% url 'eventos:lista' %}{% endif %}">Cancelar</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

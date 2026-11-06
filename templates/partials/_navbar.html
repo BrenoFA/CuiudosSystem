@@ -1,0 +1,20 @@
+<header class="topo">
+  <nav class="topo__interno" aria-label="Principal">
+    <a class="marca" href="{% url 'eventos:lista' %}">Campus<span>Eventos</span></a>
+    <div class="topo__links">
+      <a href="{% url 'eventos:lista' %}">Eventos</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'eventos:minhas_inscricoes' %}">Minhas inscrições</a>
+        <a href="{% url 'eventos:meus_eventos' %}">Meus eventos</a>
+        <a class="botao botao--pequeno" href="{% url 'eventos:criar' %}">Novo evento</a>
+        <form method="post" action="{% url 'contas:logout' %}">
+          {% csrf_token %}
+          <button class="link-botao" type="submit">Sair</button>
+        </form>
+      {% else %}
+        <a href="{% url 'contas:login' %}">Entrar</a>
+        <a class="botao botao--pequeno" href="{% url 'contas:cadastro' %}">Criar conta</a>
+      {% endif %}
+    </div>
+  </nav>
+</header>

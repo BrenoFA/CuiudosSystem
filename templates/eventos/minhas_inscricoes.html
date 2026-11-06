@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Minhas inscrições{% endblock %}
+
+{% block content %}
+<div class="cabecalho">
+  <h1>Minhas inscrições</h1>
+</div>
+
+{% if eventos %}
+  <div class="grade">
+    {% for evento in eventos %}
+      {% include "eventos/_card.html" %}
+    {% endfor %}
+  </div>
+  {% include "partials/_paginacao.html" %}
+{% else %}
+  <div class="vazio">
+    <h2>Nenhuma inscrição por enquanto</h2>
+    <p>Quando você se inscrever em um evento, ele aparece aqui.</p>
+    <a href="{% url 'eventos:lista' %}">Ver eventos</a>
+  </div>
+{% endif %}
+{% endblock %}

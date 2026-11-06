@@ -1,0 +1,17 @@
+<a class="cartao{% if evento.encerrado %} cartao--encerrado{% endif %}" href="{{ evento.get_absolute_url }}">
+  <div class="cartao__data">
+    <span class="cartao__dia">{{ evento.data_inicio|date:"d" }}</span>
+    <span class="cartao__mes">{{ evento.data_inicio|date:"M" }}</span>
+  </div>
+  <div class="cartao__corpo">
+    <span class="etiqueta">{{ evento.categoria }}</span>
+    <h2 class="cartao__titulo">{{ evento.titulo }}</h2>
+    <p class="cartao__info">{{ evento.data_inicio|date:"H:i" }} · {{ evento.local }}</p>
+    <div class="barra" aria-hidden="true"><span style="width: {{ evento.percentual_ocupado }}%"></span></div>
+    <p class="cartao__vagas">
+      {% if evento.encerrado %}Encerrado
+      {% elif evento.lotado %}Vagas esgotadas
+      {% else %}{{ evento.vagas_restantes }} livre{{ evento.vagas_restantes|pluralize }} de {{ evento.vagas }} vaga{{ evento.vagas|pluralize }}{% endif %}
+    </p>
+  </div>
+</a>

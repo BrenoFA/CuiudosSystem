@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Eventos{% endblock %}
+
+{% block content %}
+<section class="abertura">
+  <h1>O que vai acontecer no campus</h1>
+  <p>Palestras, oficinas e competições abertas à comunidade. Escolha uma atividade e garanta sua vaga.</p>
+  <form class="busca" method="get" role="search">
+    {% if categoria_atual %}<input type="hidden" name="categoria" value="{{ categoria_atual }}">{% endif %}
+    {% if periodo %}<input type="hidden" name="periodo" value="{{ periodo }}">{% endif %}
+    <label class="oculto" for="busca-q">Buscar eventos</label>
+    <input id="busca-q" type="search" name="q" value="{{ busca }}" placeholder="Título, assunto ou local">
+    <button class="botao" type="submit">Buscar</button>
+  </form>
+</section>
+
+<div class="filtros">
+  <div class="filtros__grupo">
+    <a class="filtro{% if not categoria_atual %} filtro--ativo{% endif %}" href="{% querystring categoria=None page=None %}">Todas</a>
+    {% for categoria in categorias %}
+      <a class="filtro{% if categoria_atual == categoria.pk|stringformat:'s' %} filtro--ativo{% endif %}" href="{% querystring categoria=categoria.pk page=None %}">{{ categoria.nome }}</a>
+    {% endfor %}
+  </div>
+  <div class="filtros__grupo">
+    <a class="filtro{% if periodo != 'encerrados' %} filtro--ativo{% endif %}" href="{% querystring periodo=None page=None %}">Próximos</a>
+    <a class="filtro{% if periodo == 'encerrados' %} filtro--ativo{% endif %}" href="{% querystring periodo='encerrados' page=None %}">Encerrados</a>
+  </div>
+</div>
+
+{% if eventos %}
+  <div class="grade">
+    {% for evento in eventos %}
+      {% include "eventos/_card.html" %}
+    {% endfor %}
+  </div>
+  {% include "partials/_paginacao.html" %}
+{% else %}
+  <div class="vazio">
+    <h2>Nenhum evento encontrado</h2>
+    <p>Tente outra busca ou limpe os filtros.</p>
+    <a href="{% url 'eventos:lista' %}">Ver todos os eventos</a>
+  </div>
+{% endif %}
+{% endblock %}

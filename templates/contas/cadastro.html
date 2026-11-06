@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Criar conta{% endblock %}
+
+{% block content %}
+<section class="painel painel--estreito">
+  <h1>Criar conta</h1>
+  <p class="texto-suave">Com uma conta você se inscreve em eventos e publica os seus.</p>
+  <form method="post">
+    {% csrf_token %}
+    {% include "partials/_form_campos.html" %}
+    <button class="botao botao--largo" type="submit">Criar conta</button>
+  </form>
+  <p class="painel__rodape">Já tem conta? <a href="{% url 'contas:login' %}">Entre aqui</a>.</p>
+</section>
+{% endblock %}

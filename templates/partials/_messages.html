@@ -1,0 +1,7 @@
+{% if messages %}
+  <ul class="avisos" role="status">
+    {% for message in messages %}
+      <li class="aviso aviso--{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}

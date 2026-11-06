@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Meus eventos{% endblock %}
+
+{% block content %}
+<div class="cabecalho">
+  <h1>Meus eventos</h1>
+  <a class="botao" href="{% url 'eventos:criar' %}">Novo evento</a>
+</div>
+
+{% if eventos %}
+  <div class="grade">
+    {% for evento in eventos %}
+      {% include "eventos/_card.html" %}
+    {% endfor %}
+  </div>
+  {% include "partials/_paginacao.html" %}
+{% else %}
+  <div class="vazio">
+    <h2>Você ainda não publicou eventos</h2>
+    <p>Crie o primeiro e acompanhe aqui quem se inscreveu.</p>
+  </div>
+{% endif %}
+{% endblock %}
