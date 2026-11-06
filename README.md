@@ -2,9 +2,28 @@
 
 Sistema web em Django para divulgar eventos acadêmicos e gerenciar inscrições. Qualquer pessoa consulta os eventos; quem tem conta publica eventos e se inscreve nos eventos de outras pessoas, respeitando o limite de vagas.
 
-Trabalho final da disciplina de Programação III (IFRO).
-
 ![Tela inicial do Campus Eventos](docs/img/tela-inicial.png)
+
+## Vídeo explicativo
+
+**Link do vídeo:** [PREENCHER]
+
+## Informações acadêmicas
+
+| | |
+|---|---|
+| **Instituição** | IFRO Campus Ariquemes |
+| **Curso** | Análise e Desenvolvimento de Sistemas (ADS), 4º período |
+| **Disciplina** | Programação III |
+| **Professor** | Marcos Faino |
+
+## Equipe
+
+| Integrante | Matrícula |
+|---|---|
+| Igor Malher | 2025105100022 |
+| Breno Ferreira | 2025105100004 |
+| Paulo Marrane | 2025105100015 |
 
 ## Funcionalidades
 
