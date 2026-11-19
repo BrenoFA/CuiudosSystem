@@ -8,6 +8,10 @@ Sistema web em Django para divulgar eventos acadêmicos e gerenciar inscrições
 
 **Link do vídeo:** [PREENCHER]
 
+## Sistema Hospedado
+
+**Link do PythonAnywhere:** brenofa.pythonanywhere.com
+
 ## Informações acadêmicas
 
 | | |
