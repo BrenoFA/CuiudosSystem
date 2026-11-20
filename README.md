@@ -6,7 +6,7 @@ Sistema web em Django para divulgar eventos acadêmicos e gerenciar inscrições
 
 ## Vídeo explicativo
 
-**Link do vídeo:** [PREENCHER]
+**Link do vídeo:** (https://drive.google.com/file/d/1r0XmzJadSzgxboYkIdynhk79UBCQ7mVc/view?usp=sharing)
 
 ## Sistema Hospedado
 
